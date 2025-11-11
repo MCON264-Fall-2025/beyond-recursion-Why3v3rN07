@@ -4,11 +4,15 @@ public class IterativeInsertLast implements InsertLastStrategy {
 
     @Override
     public ListNode insertLast(ListNode head, int value) {
-        // TODO: implement iteratively.
+        ListNode start = head;
+        if (head == null) return new ListNode(value);
+        else while (head.next != null) head = head.next;
+        head.next = new ListNode(value);
+        return start;
         // Hints:
         // - If head == null, return new node.
         // - Otherwise, walk to tail and append; return original head.
-        return head; // placeholder
+
     }
 
     private static long usedBytes() {
@@ -18,7 +22,7 @@ public class IterativeInsertLast implements InsertLastStrategy {
 
     public static void main(String[] args) {
         // Run with: -Xms64m -Xmx64m -Xlog:gc*
-        int n = args.length > 0 ? Integer.parseInt(args[0]) : 5000;
+        int n = args.length > 0 ? Integer.parseInt(args[0]) : 8000;
         int trials = args.length > 1 ? Integer.parseInt(args[1]) : 3;
 
         // Build initial list
@@ -26,7 +30,11 @@ public class IterativeInsertLast implements InsertLastStrategy {
         for (int i = 0; i < n; i++) {
             ListNode node = new ListNode(i);
             if (head == null) head = node;
-            else { ListNode p = head; while (p.next != null) p = p.next; p.next = node; }
+            else {
+                ListNode p = head;
+                while (p.next != null) p = p.next;
+                p.next = node;
+            }
         }
 
         IterativeInsertLast strat = new IterativeInsertLast();

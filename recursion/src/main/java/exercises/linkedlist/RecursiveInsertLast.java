@@ -7,13 +7,18 @@ public class RecursiveInsertLast implements InsertLastStrategy {
 
     @Override
     public ListNode insertLast(ListNode head, int value) {
-        // TODO: implement recursively.
+        if (head == null) return new ListNode(value);
+        if (head.next == null) {
+            head.next = new ListNode(value);
+            return head;
+        }
+        head.next = insertLast(head.next, value);
+        return head;
         // Hints:
         // - Base (empty list): create and return new node.
         // - Base (tail reached): append new node and return head.
         // - Recurse: head.next = insertLast(head.next, value); return head;
         // - OPTIONAL: track recursion depth (e.g., param or field).
-        return head; // placeholder
     }
 
     // Simple memory helpers for the demo
@@ -23,7 +28,7 @@ public class RecursiveInsertLast implements InsertLastStrategy {
     }
 
     public static void main(String[] args) {
-        int n = args.length > 0 ? Integer.parseInt(args[0]) : 50000;
+        int n = args.length > 0 ? Integer.parseInt(args[0]) : 8000;
         int trials = args.length > 1 ? Integer.parseInt(args[1]) : 3;
 
         // Build an initial list (iteratively to avoid skewing recursion demo)
@@ -31,7 +36,11 @@ public class RecursiveInsertLast implements InsertLastStrategy {
         for (int i = 0; i < n; i++) {
             ListNode node = new ListNode(i);
             if (head == null) head = node;
-            else { ListNode p = head; while (p.next != null) p = p.next; p.next = node; }
+            else {
+                ListNode p = head;
+                while (p.next != null) p = p.next;
+                p.next = node;
+            }
         }
 
         RecursiveInsertLast strat = new RecursiveInsertLast();

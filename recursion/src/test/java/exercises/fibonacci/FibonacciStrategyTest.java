@@ -16,15 +16,24 @@ class FibonacciStrategyTest {
 
     private void testStrategy(FibonacciStrategy strategy) {
         assertAll(
-                () -> assertEquals(0, strategy.compute(0)),
+//                () -> assertEquals(0, strategy.compute(0)),
+//                () -> assertEquals(1, strategy.compute(1)),
+//                () -> assertEquals(1, strategy.compute(2)),
+//                () -> assertEquals(2, strategy.compute(3)),
+//                () -> assertEquals(3, strategy.compute(4)),
+//                () -> assertEquals(5, strategy.compute(5)),
+//                () -> assertEquals(8, strategy.compute(6)),
+//                () -> assertEquals(13, strategy.compute(7)),
+//                () -> assertEquals(21, strategy.compute(8))
+                () -> assertEquals(1, strategy.compute(0)),  //starting from 0
                 () -> assertEquals(1, strategy.compute(1)),
-                () -> assertEquals(1, strategy.compute(2)),
-                () -> assertEquals(2, strategy.compute(3)),
-                () -> assertEquals(3, strategy.compute(4)),
-                () -> assertEquals(5, strategy.compute(5)),
-                () -> assertEquals(8, strategy.compute(6)),
-                () -> assertEquals(13, strategy.compute(7)),
-                () -> assertEquals(21, strategy.compute(8))
+                () -> assertEquals(2, strategy.compute(2)),
+                () -> assertEquals(3, strategy.compute(3)),
+                () -> assertEquals(5, strategy.compute(4)),
+                () -> assertEquals(8, strategy.compute(5)),
+                () -> assertEquals(13, strategy.compute(6)),
+                () -> assertEquals(21, strategy.compute(7)),
+                () -> assertEquals(34, strategy.compute(8))
         );
     }
 

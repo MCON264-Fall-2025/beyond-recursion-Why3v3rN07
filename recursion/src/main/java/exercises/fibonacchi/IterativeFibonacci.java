@@ -5,6 +5,16 @@ public class IterativeFibonacci implements FibonacciStrategy {
     @Override
     public long compute(int n) {
         //TODO implement using iterative approach
+        if (n == 0 || n == 1) return 1;
+        int twoBack = 1;
+        int oneBack = 1;
+        int fibonacci = 0;
+        for (int i = 2; i <= n; i++) {
+            fibonacci = twoBack + oneBack;
+            twoBack = oneBack;
+            oneBack = fibonacci;
+        }
+        return fibonacci;
     }
 
 
