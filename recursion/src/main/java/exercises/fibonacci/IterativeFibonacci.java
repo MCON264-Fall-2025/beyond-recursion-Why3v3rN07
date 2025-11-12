@@ -1,10 +1,23 @@
-package exercises.fibonacchi;
+package exercises.fibonacci;
 
 public class IterativeFibonacci implements FibonacciStrategy {
 
     @Override
     public long compute(int n) {
         //TODO implement using iterative approach
+        if (n <= 0) return 0;
+        else if (n == 1 || n == 2) return 1;
+        else {
+            long twoBack = 1;
+            long oneBack = 1;
+            long fibonacci = 0;
+            for (int i = 3; i <= n; i++) {
+                fibonacci = twoBack + oneBack;
+                twoBack = oneBack;
+                oneBack = fibonacci;
+            }
+            return fibonacci;
+        }
     }
 
 
