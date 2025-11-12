@@ -1,13 +1,12 @@
-package exercises.fibonacchi;
+package exercises.fibonacci;
 
 public class RecursiveFibonacci implements FibonacciStrategy {
 
     @Override
     public long compute(int n) {
         //TODO implement using recursive approach
-        if (n == 0 || n == 1)  {
-            return 1;
-        }
+        if (n <= 0) return 0;
+        if (n == 1 || n == 2) return 1;
         return compute(n - 1) + compute(n - 2);
     }
 

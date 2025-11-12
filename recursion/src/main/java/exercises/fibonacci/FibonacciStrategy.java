@@ -1,4 +1,4 @@
-package exercises.fibonacchi;
+package exercises.fibonacci;
 
 public interface FibonacciStrategy {
     /**
